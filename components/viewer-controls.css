@@ -1,0 +1,14 @@
+.viewer-tool {
+  display: grid; width: 2.2rem; height: 2.2rem; place-items: center;
+  border: 1px solid #123d321c; border-radius: 50%; background: white; color: #123d32;
+  transition: background-color .15s, color .15s;
+}
+.viewer-tool:hover:not(:disabled), .viewer-tool-active { background: #123d32; color: white; }
+.viewer-tool:disabled { cursor: not-allowed; opacity: .4; }
+.viewer-arrow {
+  position: absolute; top: 50%; z-index: 20; display: grid; width: 2.7rem; height: 2.7rem;
+  transform: translateY(-50%); place-items: center; border: 1px solid #123d3220;
+  border-radius: 50%; background: #fff8ebed; color: #123d32; box-shadow: 0 4px 15px #0001;
+}
+.viewer-arrow:hover:not(:disabled) { background: #123d32; color: white; }
+.viewer-arrow:disabled { cursor: not-allowed; opacity: .35; }

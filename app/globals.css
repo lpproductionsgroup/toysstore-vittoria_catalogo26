@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --red: #a6192e;
+  --green: #123d32;
+  --gold: #d6ad60;
+  --cream: #fff8eb;
+  --ink: #1d2b24;
+  --muted: #647169;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button, a, input { font: inherit; }
+a { color: inherit; }
+button { cursor: pointer; }
+::selection { color: white; background: var(--red); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.serif { font-family: var(--font-serif), Georgia, serif; }
+.container { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .65rem;
+  color: var(--red); font-size: .73rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+}
+.eyebrow::before { width: 24px; height: 1px; background: currentColor; content: ""; }
+.button {
+  min-height: 3.25rem; display: inline-flex; align-items: center; justify-content: center;
+  gap: .65rem; border: 1px solid transparent; border-radius: 999px;
+  padding: .8rem 1.35rem; font-size: .9rem; font-weight: 700;
+  text-decoration: none; transition: background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.button:hover { transform: translateY(-2px); }
+.button-primary { background: var(--red); color: white; box-shadow: 0 8px 20px #a6192e24; }
+.button-primary:hover { background: #861426; box-shadow: 0 12px 24px #a6192e30; }
+.button-dark { background: var(--green); color: white; }
+.button-dark:hover { background: #0c3027; }
+.button-outline { border-color: #123d3240; background: transparent; color: var(--green); }
+.button-outline:hover { background: white; }
+.snow-field { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.snowflake {
+  position: absolute; width: 5px; height: 5px; border-radius: 50%;
+  background: #fff; opacity: .7; box-shadow: 0 0 10px #fff8;
+  animation: drift 12s linear infinite;
+}
+@keyframes drift { from { transform: translate3d(0, -10vh, 0); } to { transform: translate3d(22px, 110vh, 0); } }
+@keyframes float { 50% { transform: translateY(-8px); } }
+.pdf-page canvas { display: block; width: 100% !important; max-width: 100%; height: auto !important; object-fit: contain; }
+.pdf-page { flex: 0 0 auto; overflow: visible; background: white; box-shadow: 0 15px 40px #173a2b20; }
+.viewer-stage { height: min(74svh, 900px); min-height: 320px; overflow: auto; }
+.viewer-page-skeleton { position: absolute; inset: 0; display: grid; place-items: center; background: #fffdf8; }
+.viewer-page-enter { animation: page-in .38s cubic-bezier(.2,.75,.3,1) both; }
+@keyframes page-in { from { opacity: .35; transform: perspective(1200px) rotateY(-7deg) translateX(8px); } to { opacity: 1; transform: perspective(1200px) rotateY(0) translateX(0); } }
+.viewer-scrollbar { scrollbar-color: #d6ad60 #f1e8d8; scrollbar-width: thin; }
+
+@media (max-width: 640px) {
+  .container { width: min(100% - 2rem, 1180px); }
+  .button { min-height: 3rem; padding: .7rem 1.1rem; }
+}
+@media (max-width: 360px) {
+  .container { width: calc(100% - 1.25rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
