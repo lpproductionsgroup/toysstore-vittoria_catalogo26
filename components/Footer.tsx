@@ -23,7 +23,7 @@ export function Footer() {
         <a className="inline-flex items-center gap-2 hover:text-white" href={`tel:${site.address.internationalTelephone}`}><Phone size={14} className="text-[var(--gold)]" /> {site.address.telephone}</a>
       </div>
       <div className="border-t border-white/10">
-        <div className="container py-4 text-[.68rem] text-white/50">© {site.year} Toys Store Vittoria. Tutti i diritti riservati.</div>
+        <div className="container py-4 text-[.68rem] text-white/50">© {site.year} Toys Store Vittoria. Tutti i diritti riservati. -- Developed by LP PRODUCTIONS GROUP - Lorenzo Perucci</div>
       </div>
     </footer>
   );
